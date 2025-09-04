@@ -1,7 +1,7 @@
 # Secure Backup/Restore Tool
 
 ## Usage
-
+i made it on vms so make sure ssh is working and keys are exchanged
 ### Backup
 ```bash
 chmod +x ./backup.sh 
