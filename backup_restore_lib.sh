@@ -212,7 +212,7 @@ if [ ${#encrypted_files[@]} -gt 0 ]; then
             tar -xzf "$decrypted_file" -C "${decrypted_file%/*}"
 
             # Remove the decrypted tar file and the encrypted file
-  rm "$decrypted_file" "$encrypted_file"
+            rm "$decrypted_file" "$encrypted_file"
         done
 fi
 for content in "$restored_dir/temp_restore"/*; do
