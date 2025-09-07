@@ -181,10 +181,6 @@ if [ ! -d "$1" ]; then
         exit 1
 fi
 
-if [ ! -d "$2" ]; then
-        echo "Error: Restore directory does not exist!"
-        exit 1
-fi
 if [ ! -z "$3" ]; then
         echo "Error: key is empty !"
         exit 1
