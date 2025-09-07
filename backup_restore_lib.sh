@@ -173,7 +173,9 @@ transfer() {
 validrestore(){
  if [ $# -ne 3 ]; then
         echo "Error: Missing input parameters"
-        helpMessage
+        echo " 1st parameter backup directory"
+        echo "2nd parameter restore directory"
+        echo "3rd parameter key "
         exit 1
     fi
 if [ ! -d "$2" ]; then
