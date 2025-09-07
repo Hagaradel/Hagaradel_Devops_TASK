@@ -178,10 +178,6 @@ validrestore(){
         echo "3rd parameter key "
         exit 1
     fi
-if [ ! -d "$2" ]; then
-        echo "Error: restore directory does not exist!"
-        exit 1
-fi
 
 if [ ! -z "$3" ]; then
         echo "Error: key is empty !"
