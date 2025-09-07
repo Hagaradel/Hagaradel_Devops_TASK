@@ -176,8 +176,8 @@ validrestore(){
         helpMessage
         exit 1
     fi
-if [ ! -d "$1" ]; then
-        echo "Error: Backup directory does not exist!"
+if [ ! -d "$2" ]; then
+        echo "Error: restore directory does not exist!"
         exit 1
 fi
 
