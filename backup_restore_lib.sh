@@ -192,9 +192,9 @@ key="$3"
 mkdir -p "$restored_dir/temp"
 
     # Restore the files inside the backup_directory on the remote server to the temp_dir
-scp -i /root/.ssh/id_rsa  -r hagar@192.168.1.29:$backup_dir/* $restored_dir/temp_restore
+scp -i /root/.ssh/id_rsa  -r hagar@192.168.1.29:$backup_dir/* $restored_dir/temp
 
-# Check and decrypt the encrypted backup files inside temp_restor
+# Check and decrypt the encrypted backup files inside temp
 
 
 encrypted_files=("$restored_dir/temp"/*.tar.gz.gpg)
@@ -213,7 +213,12 @@ if [ ${#encrypted_files[@]} -gt 0 ]; then
             rm "$decrypted_file" "$encrypted_file"
         done
 fi
-for content in "$restored_dir/temp_restore"/*; do
+e=''
+for i in "$restored_dir/temp"/* ; do
+        e="$i"
+done
+
+for content in "$e"/*; do
         if [ -f "$content" ]; then
 
             # Decrypt the file using the provided decryption_key
@@ -221,10 +226,10 @@ for content in "$restored_dir/temp_restore"/*; do
             gpg --output "$decrypted_file" --decrypt --recipient "$decryption_key" "$content"
 
             # Check if the decrypted file is a tar.gz file
-            if [[ "$decrypted_file" == *.tgz ]]; then
+            if [[ "$decrypted_file" == *.tar.gz ]]; then
 
                 # Create a directory with the same name as the decrypted file
-                extraction_dir="${decrypted_file%.tgz}"
+                extraction_dir="${decrypted_file%.tar.gz}"
                 mkdir "$extraction_dir"
 
                 # Extract the decrypted tar file into the extraction directory
