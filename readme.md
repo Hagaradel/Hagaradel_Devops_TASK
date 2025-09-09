@@ -20,7 +20,7 @@ chmod +x ./backup_restore_lib.sh
 ## Example
 ```bash
 ./backup.sh /tmp/source /tmp/backups mypassword 7
-./restore.sh /tmp/backups/2025-09-03_12-00-00 /tmp/restore mypassword
+./restore.sh /tmp/backups/20250903/tmp/restore mypassword
 ```
 
 ## Scheduling with Cron
