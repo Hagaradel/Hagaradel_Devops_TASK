@@ -6,7 +6,7 @@ i made it on vms so make sure ssh is working and keys are exchanged
 ```bash
 chmod +x ./backup.sh 
 chmod +x ./restore.sh
-chmod +x ./backup_restore_lib
+chmod +x ./backup_restore_lib.sh
 ```
 ```bash
 ./backup.sh <source_dir> <backup_dir> <encryption_key> <days>
